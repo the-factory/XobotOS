@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Xobotos by the-factory</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Xobotos</h1>
+        <h2>XobotOS - Android ported to C#</h2>
+        <a href="https://github.com/the-factory/XobotOS" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
+<a id="xobotos-project" class="anchor" href="#xobotos-project" aria-hidden="true"><span class="octicon octicon-link"></span></a>XobotOS project</h1>
+
+<p>XobotOS is a Xamarin research project that explored porting Android
+4.0 from Java/Dalvik to C# to explore the performance and memory
+footprint benefits of C#.</p>
+
+<p>XobotOS is a semi-automated port of the Android 4.0 source code from
+Java to C#.  The automated parts were ported using an improved version
+of Sharpen that can compile more advanced Java constructs and supports
+generics.  Most of the manual bits of code fall in two categories (a)
+code to integrate with the host operating system and (b) replace the
+Java JNI code used to call into C, with the ECMA CLI P/Invoke
+functionality.</p>
+
+<h1>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h1>
+
+<p>The various components of XobotOS are licensed under the same license
+as their upstream providers.  The C# versions of Android is licensed
+under the terms of the Apache 2 license, while the improved version of
+Sharpen is licensed under the GPL.</p>
+
+<h1>
+<a id="xobotos-source-code" class="anchor" href="#xobotos-source-code" aria-hidden="true"><span class="octicon octicon-link"></span></a>XobotOS Source Code</h1>
+
+<p>XobotOS is made up of the following sources:</p>
+
+<p>sharpen:</p>
+
+<pre><code>* Our updated version of Sharpen, see below for changes.
+</code></pre>
+
+<p>android/generated:</p>
+
+<pre><code>* Fully translated Java to C# code, classes that have been
+  translated in this way contain the attribute [Sharpen.Sharpened]
+
+* Empty C# stubs based on the Java declaration: these are
+      needed as intermediate steps to get things to build in the
+      new C# world.  Classes with empty stubs are decorated with
+      the [Sharpen.NakedStub] attribute
+
+android/extra-sources:
+
+* Custom written code that either fine tunes the port,
+      provides an alternative optimized version to a class or
+      provides a runtime facility.
+
+android/api:
+
+* XML files that describe the translation process from Java to C#.
+
+android/upstream:
+
+* Google's Android 4.0 source code.
+
+libxobotos:
+
+* Glue code to integrate with various Android C++ libraries as
+      well as the Linux X11 host that sets up the toplevel window
+      and the optional OpenGL context.
+
+* Mostly calls into Skia, Jpeg, OpenGL and ICU libraries.
+
+binaries:
+
+* Libraries to get you started without requiring you to build Skia,
+  and other native Android tools.
+
+* Screenshots, videos, and some basic precompiled samples.
+
+monodevelop:
+
+    * Add-in to build native XobotOS applications with MonoDevelop
+
+samples:
+
+* Ported samples to C# using XobotOS
+
+external:
+
+* Native libraries needed to build the unmanaged libxobotos C library
+</code></pre>
+
+<h1>
+<a id="sharpen" class="anchor" href="#sharpen" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sharpen</h1>
+
+<p>The outcome of this project is a vastly improved Sharpen tool that is
+able to port very sophisticated and advanced Java codebases from Java
+to C#.   This code lives in the "sharpen" directory.</p>
+
+<p>This modified version of Sharpen can cope with the following enhancements:</p>
+
+<pre><code>* Java generics
+
+* XML-driven translation process
+
+* Type remapping for native Java types to C# types, and supports
+  for custom type mappings.
+
+* Support for translating code that does native interop
+
+* Support for generating C's .c and .h files for native glue
+      (to assist in P/Invoke support)
+
+* Add attribute-supported translations
+
+* Improved incremental compilation
+</code></pre>
+
+<p>Documentation on the improved Sharpen engine will be posted in the
+future so other developers can more easily port Java code to C#.</p>
+
+<h1>
+<a id="support-" class="anchor" href="#support-" aria-hidden="true"><span class="octicon octicon-link"></span></a>Support </h1>
+
+<p>This code is provided as-is, and we do not offer support for any bits
+of code here, nor does Xamarin plan on continuing evolving XobotOS at
+this point.</p>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/the-factory/XobotOS/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/the-factory/XobotOS/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/the-factory/XobotOS"></a> is maintained by <a href="https://github.com/the-factory">the-factory</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
